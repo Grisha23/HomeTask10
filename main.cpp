@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
-#include "Set.h"
 #include "Debug.h"
-
 std::string Debug::f_name = "/home/gri/Рабочий стол/Debug1.txt";
+#include "Set.h"
+
 
 template <class T>
 Set<T> only_in_one(Set<T>& set1, Set<T>& set2) {

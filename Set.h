@@ -191,12 +191,12 @@ public:
         return *this;
     }
 
-    static std::string to_string(const Set<T> &set)
+    std::string to_string() const
     {
         std::string s;
 
-        for (int i = 0; i < set.size; ++i) {
-            s += std::to_string(set.elem[i]);
+        for (int i = 0; i < this->size; ++i) {
+            s += std::to_string(this->elem[i]);
             s += " ";
         }
 
@@ -389,9 +389,9 @@ public:
     Set& operator = (const Set &set2)
     {
         std::string tmp("Set1( ");
-        tmp+= to_string(*this);
+        tmp += this->to_string();
         tmp+= ") Set2( ";
-        tmp+= to_string(set2);
+        tmp += set2.to_string();
         tmp+= ")";
 
         debug.log("operator =" , tmp ,"ENTER");
@@ -421,12 +421,12 @@ public:
         return *this;
     }
 
-    static std::string to_string(const Set &set)
+    std::string to_string() const
     {
         std::string s;
 
-        for (int i = 0; i < set.size; ++i) {
-            s += set.elem[i];
+        for (int i = 0; i < this->size; ++i) {
+            s += this->elem[i];
             s += " ";
         }
 
@@ -496,7 +496,7 @@ template <class T>
 std::ostream& operator << (std::ostream &ostream,const Set<T> &set)
 {
     std::string tmp("Set1( ");
-    tmp+= Set<T>::to_string(set);
+    tmp+= set.to_string();
     tmp+= ")";
 
     debug.log("operator <<" , tmp, "ENTER");
@@ -528,9 +528,9 @@ Set<T> operator - (const Set<T> &set1, const Set<T> &set2)
     }
 
     std::string tmp("Set1( ");
-    tmp += Set<T>::to_string(set1) ;
+    tmp += set1.to_string() ;
     tmp += ") Set2( ";
-    tmp += Set<T>::to_string(set1);
+    tmp += set2.to_string();
     tmp += ")";
 
     debug.log("operator -", tmp, "ENTER");
@@ -560,9 +560,9 @@ template <class T>
 Set<T> operator * (const Set<T> &set1, const Set<T> &set2)
 {
     std::string tmp("Set1( ");
-    tmp += Set<T>::to_string(set1) ;
+    tmp += set1.to_string();
     tmp += ") Set2( ";
-    tmp += Set<T>::to_string(set1);
+    tmp += set2.to_string();
     tmp += ")";
 
     debug.log("operator *" , tmp,"ENTER");
@@ -592,9 +592,9 @@ template <class T>
 Set<T> operator + (const Set<T> &set1, const Set<T> &set2)
 {
     std::string tmp("Set1( ");
-    tmp += Set<T>::to_string(set1) ;
+    tmp += set1.to_string();
     tmp += ") Set2( ";
-    tmp += Set<T>::to_string(set1);
+    tmp += set2.to_string();
     tmp += ")";
 
     debug.log("operator +", tmp,"ENTER");

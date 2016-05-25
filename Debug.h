@@ -21,8 +21,6 @@ public:
     {
         if (!f_name.size()) f_name = "/home/Debug";
 
-        std::cout << f_name;
-
         file.open(f_name);
 
         if (!file.is_open()) {
