@@ -159,9 +159,9 @@ public:
     Set& operator = (const Set &set2)
     {
         std::string tmp("Set1( ");
-        tmp+= to_string(*this);
+        tmp+= this->to_string();
         tmp+= ") Set2( ";
-        tmp+= to_string(set2);
+        tmp+= set2.to_string();
         tmp+= ")";
 
         debug.log("operator =" , tmp ,"ENTER");

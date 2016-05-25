@@ -4,6 +4,7 @@
 std::string Debug::f_name = "/home/gri/Рабочий стол/Debug1.txt";
 #include "Set.h"
 
+typedef int T;
 
 template <class T>
 Set<T> only_in_one(Set<T>& set1, Set<T>& set2) {
@@ -27,8 +28,8 @@ int main() {
     }
 
 
-    Set<std::string > set1;
-    Set<std::string > set2;
+    Set<T> set1;
+    Set<T> set2;
 
     try {
         file1 >> set1;
@@ -55,7 +56,7 @@ int main() {
     std::cout << "Set #1: \n" << set1 << "\n";
     std::cout << "Set #2: \n" << set2 << "\n";
 
-    Set<std::string > set3;
+    Set<T> set3;
 
     set3 = set2;
 
